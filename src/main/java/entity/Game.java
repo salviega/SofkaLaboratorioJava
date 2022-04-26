@@ -1,8 +1,8 @@
-package Entity;
+package entity;
 
 public class Game {
 
-    private Long id;
+    private Integer id;
     private Integer accumulated;
     private Status status;
     private Round round;
@@ -11,7 +11,14 @@ public class Game {
     public Game() {
     }
 
-    public Game(Long id, Integer accumulated, Status status, Round round, Player player) {
+    public Game(Integer accumulated, Status status, Round round, Player player) {
+        this.accumulated = accumulated;
+        this.status = status;
+        this.round = round;
+        this.player = player;
+    }
+
+    public Game(Integer id, Integer accumulated, Status status, Round round, Player player) {
         this.id = id;
         this.accumulated = accumulated;
         this.status = status;
@@ -19,11 +26,11 @@ public class Game {
         this.player = player;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

@@ -1,25 +1,25 @@
-package Entity;
+package entity;
 
 public class Reward {
 
-    private Long id;
+    private Integer id;
     private String description;
     private int amount;
 
     public Reward() {
     }
 
-    public Reward(Long id, String description, int amount) {
+    public Reward(Integer id, String description, int amount) {
         this.id = id;
         this.description = description;
         this.amount = amount;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
