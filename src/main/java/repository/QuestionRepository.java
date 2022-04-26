@@ -25,9 +25,9 @@ public class QuestionRepository extends SqlConnection {
         return this.rowMapper();
     }
 
-    List<Question> findRandomByCategory(Category category) {
+    List<Question> findQuestionsByCategory(Category category) {
         List<Question> questions = new ArrayList<>();
-        String query = String.format("SELECT TOP 1 * FROM %s WHERE category_id = %s ORDER BY NEWID()",
+        String query = String.format("SELECT * FROM %s WHERE category_id = %s",
                 this.tableName,
                 category.getId());
         try {
