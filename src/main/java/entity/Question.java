@@ -1,25 +1,25 @@
-package Entity;
+package entity;
 
-public class Player {
+public class Question {
 
-    private Long id;
+    private Integer id;
     private String description;
     private Category category;
 
-    public Player() {
+    public Question() {
     }
 
-    public Player(Long id, String description, Category category) {
+    public Question(Integer id, String description, Category category) {
         this.id = id;
         this.description = description;
         this.category = category;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
