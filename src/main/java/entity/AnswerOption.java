@@ -1,8 +1,8 @@
-package Entity;
+package entity;
 
 public class AnswerOption {
 
-    private Long id;
+    private Integer id;
     private String description;
     private Boolean isValid;
     private Question question;
@@ -10,18 +10,18 @@ public class AnswerOption {
     public AnswerOption() {
     }
 
-    public AnswerOption(Long id, String description, Boolean isValid, Question question) {
+    public AnswerOption(Integer id, String description, Boolean isValid, Question question) {
         this.id = id;
         this.description = description;
         this.isValid = isValid;
         this.question = question;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
