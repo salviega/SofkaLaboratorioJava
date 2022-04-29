@@ -61,17 +61,33 @@ public class GameRepository extends SqlConnection {
         }
     }
 
-    public void save(Game game) {
-        String query = String.format("INSERT INTO games (accumulated, player_id, round_id, status_id) VALUES (%s, %s, %s, %s)",
-                game.getAccumulated(),
-                game.getPlayer().getId(),
-                game.getRound().getId(),
-                game.getStatus().getId());
+    public Game save(Game game) {
+        String query;
+        if (game.getId() == null) {
+            query = String.format("INSERT INTO games (accumulated, player_id, round_id, status_id) VALUES (%s, %s, %s, %s)",
+                    game.getAccumulated(),
+                    game.getPlayer().getId(),
+                    game.getRound().getId(),
+                    game.getStatus().getId());
+        } else {
+            query = String.format("UPDATE %s SET accumulated = %s, player_id = %s, round_id = %s, status_id = %s WHERE id = %s",
+                    this.tableName,
+                    game.getAccumulated(),
+                    game.getPlayer().getId(),
+                    game.getRound().getId(),
+                    game.getStatus().getId(),
+                    game.getId());
+        }
         try {
             this.preparedStatement = super.getConnection().prepareStatement(query);
-            this.preparedStatement.executeUpdate();
+            int response = this.preparedStatement.executeUpdate();
+            if (response == 1) {
+                return game;
+            }
+            return null;
         } catch (SQLException e) {
             e.printStackTrace();
+            return null;
         }
     }
 

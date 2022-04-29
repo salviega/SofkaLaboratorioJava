@@ -25,7 +25,7 @@ public class QuestionRepository extends SqlConnection {
         return this.rowMapper();
     }
 
-    List<Question> findQuestionsByCategory(Category category) {
+    public List<Question> findAllByCategory(Category category) {
         List<Question> questions = new ArrayList<>();
         String query = String.format("SELECT * FROM %s WHERE category_id = %s",
                 this.tableName,

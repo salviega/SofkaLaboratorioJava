@@ -17,7 +17,7 @@ public class StatusRepository extends SqlConnection {
     @Override
     public Status findById(Integer id) {
         super.findById(id);
-        return rowMapper();
+        return this.rowMapper();
     }
 
     private Status rowMapper() {

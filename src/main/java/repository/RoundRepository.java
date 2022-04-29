@@ -19,7 +19,7 @@ public class RoundRepository extends SqlConnection {
     @Override
     public Round findById(Integer id) {
         super.findById(id);
-        return rowMapper();
+        return this.rowMapper();
     }
 
     private Round rowMapper() {

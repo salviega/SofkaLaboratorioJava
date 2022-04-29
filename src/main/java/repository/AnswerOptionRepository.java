@@ -22,7 +22,7 @@ public class AnswerOptionRepository extends SqlConnection {
     @Override
     public AnswerOption findById(Integer id) {
         super.findById(id);
-        return rowMapper();
+        return this.rowMapper();
     }
 
     public List<AnswerOption> findAllByQuestion(Question question) {

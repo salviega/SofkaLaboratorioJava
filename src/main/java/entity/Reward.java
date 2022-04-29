@@ -4,7 +4,7 @@ public class Reward {
 
     private Integer id;
     private String description;
-    private int amount;
+    private Integer amount;
 
     public Reward() {
     }

@@ -17,14 +17,15 @@ public class RewardRepository extends SqlConnection {
     @Override
     public Reward findById(Integer id) {
         super.findById(id);
-        return rowMapper();
+        return this.rowMapper();
     }
 
     private Reward rowMapper() {
         try {
             while (this.resultSet.next()) {
                 this.reward.setId(this.resultSet.getInt(1));
-                this.reward.setDescription(this.resultSet.getString(2));
+                this.reward.setAmount(this.resultSet.getInt(2));
+                this.reward.setDescription(this.resultSet.getString(3));
             }
             return this.reward;
         } catch (SQLException e) {
